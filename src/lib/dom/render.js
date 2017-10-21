@@ -16,7 +16,7 @@ export function createElementTree(tree, parentNode = select('body')) {
     tree.forEach((node) => {
         const newNode = createElement(node.tagName, parentNode, node.attributes, node.text);
 
-        if (node.children.length) {
+        if (node.children) {
             createElementTree(node.children, newNode);
         }
     });
