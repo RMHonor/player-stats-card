@@ -1,6 +1,8 @@
 import { getAllPlayers, getPlayerById } from '../../lib/api/get';
-import { createElement, createElementTree } from '../../lib/dom/render';
+import { createElementTree } from '../../lib/dom/render';
 import select from '../../lib/dom/select';
+
+import './home.scss';
 
 (async function () {
     const data = await getAllPlayers();
@@ -25,7 +27,7 @@ function createPlayerTree(players) {
                 {
                     tagName: 'div',
                     attributes: [
-                        { key: 'class', value: `player-tile player-tile__image--${player.id}`}
+                        { key: 'class', value: `player-tile__image player-image--${player.id}`}
                     ],
                 },
                 {
