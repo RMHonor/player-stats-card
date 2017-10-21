@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin: 0;
+}
+
+.container {
+  padding: 0;
+}
+
+div[class^="col-"] {
+  padding: 0;
+}
