@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         home: './pages/home/index.js',
         player: './pages/player/index.js',
-        // style: './assets/style/main.scss',
+        style: './style/main.scss',
     },
 
     output: {
