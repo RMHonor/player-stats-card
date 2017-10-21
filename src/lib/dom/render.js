@@ -1,7 +1,6 @@
 import select from './select';
 
 export function createElement(tagName, parentNode = select('body'), attributes = [], text = '') {
-    console.log(attributes);
     const newNode = document.createElement(tagName);
     attributes.forEach((attr) => {
         newNode.setAttribute(attr.key, attr.value);
@@ -15,7 +14,6 @@ export function createElement(tagName, parentNode = select('body'), attributes =
 
 export function createElementTree(tree, parentNode = select('body')) {
     tree.forEach((node) => {
-        console.log(node);
         const newNode = createElement(node.tagName, parentNode, node.attributes, node.text);
 
         if (node.children.length) {
