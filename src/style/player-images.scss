@@ -1,0 +1,9 @@
+$ids: 2064 4148 4246 4916 8983;
+
+@each $id in $ids {
+  .player-image--#{$id} {
+    width: 220px;
+    height: 280px;
+    background-image: url('../img/players/p#{$id}.png')
+  }
+}
