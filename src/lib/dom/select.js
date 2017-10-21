@@ -1,3 +1,3 @@
 export default function getNode(selector) {
-    document.querySelector(selector);
+    return document.querySelector(selector);
 }
