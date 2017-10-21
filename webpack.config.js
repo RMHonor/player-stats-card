@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: `${__dirname}/src`,
@@ -49,6 +50,10 @@ module.exports = {
             chunks: ['player', 'style'],
             inject: 'body',
         }),
+        new CopyWebpackPlugin([{
+            from: './img/players',
+            to: './assets/img/players',
+        }]),
     ],
     devtool: 'source-map',
     devServer: {
