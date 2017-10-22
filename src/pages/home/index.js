@@ -16,6 +16,10 @@ import './home.scss';
 
 function createPlayerTree(players) {
     const tree = [];
+    tree.push({
+        tagName: 'h2',
+        text: 'Select a player:',
+    });
 
     players.forEach(({player}) => {
         tree.push({
