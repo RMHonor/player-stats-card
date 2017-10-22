@@ -1,7 +1,10 @@
 @import '~bootstrap-grid';
-@import 'reset';
+@import './reset';
+@import './error';
 @import './player-images';
 @import './sprite-base';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 .container {
     border: 1px solid #c7c7c7;
@@ -9,7 +12,6 @@
 }
 
 h1 {
-    text-align: center;
     background-color: #bce1fd;
     margin: 0;
     padding: 20px;
@@ -17,6 +19,10 @@ h1 {
     border-top-right-radius: 20px;
 }
 
-h2 {
+h1, h2, h3 {
     text-align: center;
+}
+
+*, h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Open Sans', sans-serif;
 }

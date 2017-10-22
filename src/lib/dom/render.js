@@ -21,3 +21,32 @@ export function createElementTree(tree, parentNode = select('body')) {
         }
     });
 }
+
+export function renderError(header, text, parentNode) {
+    const error = [
+        {
+            tagName: 'div',
+            attributes: [
+                { key: 'class', value: 'error' },
+            ],
+            children: [
+                {
+                    tagName: 'h3',
+                    text: header,
+                    attributes: [
+                        { key: 'class', value: 'error__header' },
+                    ],
+                },
+                {
+                    tagName: 'p',
+                    text,
+                    attributes: [
+                        { key: 'class', value: 'error__text' },
+                    ],
+                },
+            ]
+        },
+    ];
+
+    createElementTree(error, parentNode);
+}
