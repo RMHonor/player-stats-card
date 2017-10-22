@@ -1,0 +1,20 @@
+$sprite-height: 100px;
+$sprite-width: 100px;
+
+$teams: (
+    ('manchester-city', 11, 4, 4),
+    ('manchester-united', 12, 6, 3),
+    ('tottenham-hotspur', 21, 7, 1),
+    ('arsenal', 1, 11, 10),
+    ('leicester-city', 26, 12, 11),
+);
+
+@each $team in $teams {
+    .team-icon--#{nth($team, 1)}, .team-icon--#{nth($team, 2)} {
+        height: $sprite-height;
+        width: $sprite-width;
+        background-image: url('../img/badges_sprite.png');
+        background-position-x: #{nth($team, 3) * $sprite-width};
+        background-position-y: #{nth($team, 4) * $sprite-height};
+    }
+}
