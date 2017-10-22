@@ -28,19 +28,20 @@ function createPlayerTree(players) {
         tree.push({
             tagName: 'div',
             attributes: [
-                { key: 'class', value: 'col-lg-3 col-md-4 col-sm-6 col-xs-12' }
+                { key: 'class', value: 'col-lg-3 col-md-4 col-sm-6 col-xs-12' },
             ],
             children: [
                 {
-                    tagName: 'div',
+                    tagName: 'a',
                     attributes: [
-                        { key: 'class', value: 'player-tile__container' }
+                        { key: 'class', value: 'player-tile__container' },
+                        { key: 'href', value: `./player?id=${player.id}` },
                     ],
                     children: [
                         {
                             tagName: 'div',
                             attributes: [
-                                { key: 'class', value: `player-tile__image player-image--${player.id}`}
+                                { key: 'class', value: `player-tile__image player-image--${player.id}`},
                             ],
                         },
                         {
@@ -60,11 +61,11 @@ function createPlayerTree(players) {
                                     tagName: 'span',
                                     text: player.name.last,
                                 },
-                            ]
+                            ],
                         },
-                    ]
+                    ],
                 },
-            ]
+            ],
         });
     });
 
