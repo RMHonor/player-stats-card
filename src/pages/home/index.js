@@ -27,14 +27,34 @@ function createPlayerTree(players) {
                 {
                     tagName: 'div',
                     attributes: [
-                        { key: 'class', value: `player-tile__image player-image--${player.id}`}
+                        { key: 'class', value: 'player-tile__container' }
                     ],
-                },
-                {
-                    tagName: 'span',
-                    text: `${player.name.first} ${player.name.last}`,
-                    attributes: [
-                        { key: 'class', value: 'player-tile__name'}
+                    children: [
+                        {
+                            tagName: 'div',
+                            attributes: [
+                                { key: 'class', value: `player-tile__image player-image--${player.id}`}
+                            ],
+                        },
+                        {
+                            tagName: 'div',
+                            attributes: [
+                                { key: 'class', value: 'player-tile__name'}
+                            ],
+                            children: [
+                                {
+                                    tagName: 'span',
+                                    text: player.name.first,
+                                },
+                                {
+                                    tagName: 'br'
+                                },
+                                {
+                                    tagName: 'span',
+                                    text: player.name.last,
+                                },
+                            ]
+                        },
                     ]
                 },
             ]
