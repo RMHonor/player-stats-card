@@ -9,6 +9,8 @@ import './players.scss';
     try {
         const data = await getPlayerById(getParams().id || -1);
 
+        renderPlayerBanner(data.player);
+
         const playerInfo = createPlayerInfoTable(data.player);
         const playerStats = createPlayerStatsTable(data.stats);
 
@@ -23,6 +25,63 @@ import './players.scss';
     select('.loader').style.display = 'none';
 })();
 
+function renderPlayerBanner(player) {
+    const tree = [
+        {
+            tagName: 'div',
+            attributes: [
+                { key: 'class', value: 'player-banner__portrait-container col-sm-3 col-xs-12' },
+            ],
+            children: [
+                {
+                    tagName: 'div',
+                    attributes: [
+                        { key: 'class', value: `player-banner__portrait player-image--${player.id}`},
+                    ],
+                },
+            ],
+        },
+        {
+            tagName: 'div',
+            attributes: [
+                { key: 'class', value: 'player-banner__info col-sm-7 col-xs-8' },
+            ],
+            children: [
+                {
+                    tagName: 'h2',
+                    text: `${player.name.first} ${player.name.last}`,
+                    attributes: [
+                        { key: 'class', value: `player-banner__name`}
+                    ],
+                },
+                {
+                    tagName: 'p',
+                    text: player.info.shirtNum,
+                    attributes: [
+                        { key: 'class', value: `player-banner__number`},
+                    ],
+                },
+            ],
+        },
+        {
+            tagName: 'div',
+            attributes: [
+                { key: 'class', value: 'player-banner__club col-sm-2 col-xs-4' },
+            ],
+            children: [
+                {
+                    tagName: 'div',
+                    attributes: [
+                        { key: 'class', value: `team-icon--${player.currentTeam.id}` },
+                    ],
+                },
+            ],
+        },
+    ];
+
+    renderElementTree(tree, select('.player-banner'));
+}
+
 function createPlayerInfoTable(player) {
     return {
         headers: ['About'],
@@ -31,7 +90,7 @@ function createPlayerInfoTable(player) {
             ['Nationality', player.nationalTeam.demonym],
             ['Team', player.currentTeam.name],
             ['Position', player.info.positionInfo],
-            ['First team', player.currentTeam.name === 'FIRST' ? 'Yes' : 'No'],
+            ['First team', player.currentTeam.teamType === 'FIRST' ? 'Yes' : 'No'],
         ],
     };
 }
