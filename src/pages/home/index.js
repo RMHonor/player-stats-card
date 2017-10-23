@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import { getAllPlayers, getPlayerById } from '../../lib/api/get';
 import { renderElementTree, renderError } from '../../lib/dom/render';
 import select from '../../lib/dom/select';
