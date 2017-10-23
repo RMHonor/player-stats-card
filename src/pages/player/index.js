@@ -42,7 +42,7 @@ function renderPlayerBanner(player) {
         {
             tagName: 'div',
             attributes: [
-                { key: 'class', value: 'player-banner__info col-sm-7 col-xs-8' },
+                { key: 'class', value: 'player-banner__info col-sm-6 col-xs-8' },
             ],
             children: [
                 {
