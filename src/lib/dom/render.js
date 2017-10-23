@@ -12,14 +12,53 @@ export function createElement(tagName, parentNode = select('body'), attributes =
     return newNode;
 }
 
-export function createElementTree(tree, parentNode = select('body')) {
+export function renderElementTree(tree = [], parentNode = select('body')) {
     tree.forEach((node) => {
         const newNode = createElement(node.tagName, parentNode, node.attributes, node.text);
 
         if (node.children) {
-            createElementTree(node.children, newNode);
+            renderElementTree(node.children, newNode);
         }
     });
+}
+
+export function renderTable(table = { body: [[]] }, parentNode = select('body')) {
+    const tree = [
+        {
+            tagName: 'table',
+            children: [],
+        },
+    ];
+
+    //conditionally create table head
+    if (table.head) {
+        tree[0].children.push({
+            tagName: 'thead',
+            children: [
+                {
+                    tagName: 'tr',
+                    children: table.head.map((heading) => ({
+                        tagName: 'th',
+                        text: 'heading',
+                    }))
+                }
+            ]
+        });
+    }
+
+    //create body
+    tree[0].children.push({
+        tagName: 'tbody',
+        children: table.body.map((row) => ({
+            tagName: 'tr',
+            children: row.map((cell) => ({
+                tagName: 'td',
+                text: cell,
+            })),
+        })),
+    });
+
+    renderElementTree(tree, parentNode);
 }
 
 export function renderError(header, text, parentNode) {
@@ -48,5 +87,5 @@ export function renderError(header, text, parentNode) {
         },
     ];
 
-    createElementTree(error, parentNode);
+    renderElementTree(error, parentNode);
 }

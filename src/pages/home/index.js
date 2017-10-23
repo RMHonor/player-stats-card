@@ -1,5 +1,5 @@
 import { getAllPlayers, getPlayerById } from '../../lib/api/get';
-import { createElementTree, renderError } from '../../lib/dom/render';
+import { renderElementTree, renderError } from '../../lib/dom/render';
 import select from '../../lib/dom/select';
 
 import './home.scss';
@@ -9,7 +9,7 @@ import './home.scss';
         const data = await getAllPlayers();
         console.log(data);
         const playerTree = createPlayerTree(data.players);
-        createElementTree(playerTree, select('.container'));
+        renderElementTree(playerTree, select('.container'));
     } catch (err) {
         renderError('Error', 'Unable to load players, please try again later', select('.container'));
     }
