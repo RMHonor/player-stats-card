@@ -1,5 +1,13 @@
 import select from './select';
 
+/**
+ *
+ * @param tagName DOM element to render
+ * @param parentNode node on which to attach this DOM element (default is body)
+ * @param attributes key value pair of attributes for element
+ * @param text inner text of element
+ * @returns Node the rendered node
+ */
 export function createElement(tagName, parentNode = select('body'), attributes = [], text = '') {
     const newNode = document.createElement(tagName);
     attributes.forEach((attr) => {
@@ -12,6 +20,13 @@ export function createElement(tagName, parentNode = select('body'), attributes =
     return newNode;
 }
 
+/**
+ *
+ * @param tree tree of DOM nodes, each which has a tagName property for the node type,
+ * attribute (optional) in key value pairs, text(optional), and children, which recursively
+ * takes further nodes
+ * @param parentNode node on which to attach this DOM tree (default is body)
+ */
 export function renderElementTree(tree = [], parentNode = select('body')) {
     tree.forEach((node) => {
         const newNode = createElement(node.tagName, parentNode, node.attributes, node.text);
