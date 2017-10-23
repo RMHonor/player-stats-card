@@ -7,7 +7,7 @@ import './home.scss';
 (async function () {
     try {
         const data = await getAllPlayers();
-        console.log(data);
+
         const playerTree = createPlayerTree(data.players);
         renderElementTree(playerTree, select('.container'));
     } catch (err) {
