@@ -22,24 +22,27 @@ export function renderElementTree(tree = [], parentNode = select('body')) {
     });
 }
 
-export function renderTable(table = { body: [[]] }, parentNode = select('body')) {
+export function renderTable(table = { body: [[]] }, parentNode = select('body'), className = '') {
     const tree = [
         {
             tagName: 'table',
+            attributes: [
+                { key: 'class', value: className },
+            ],
             children: [],
         },
     ];
 
     //conditionally create table head
-    if (table.head) {
+    if (table.headers) {
         tree[0].children.push({
             tagName: 'thead',
             children: [
                 {
                     tagName: 'tr',
-                    children: table.head.map((heading) => ({
+                    children: table.headers.map((heading) => ({
                         tagName: 'th',
-                        text: 'heading',
+                        text: heading,
                     }))
                 }
             ]
