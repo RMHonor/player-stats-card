@@ -11,9 +11,19 @@
     border-radius: 20px;
 }
 
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 .loader {
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     text-align: center;
+
+    &__spinner {
+        -webkit-animation:spin 1.5s linear infinite;
+        -moz-animation:spin 1.5s linear infinite;
+        animation:spin 1.5s linear infinite;
+    }
 }
 
 h1 {
