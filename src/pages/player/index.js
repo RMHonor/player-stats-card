@@ -17,8 +17,6 @@ import './players.scss';
         renderTable(playerInfo, select('.player-info-table'));
         renderTable(playerStats, select('.player-stats-table'));
     } catch (err) {
-        //TODO handle 404
-        console.log(err);
         renderError('Error', 'Unable to load player, please try again later', select('.container'));
     }
 
