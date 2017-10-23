@@ -49,6 +49,7 @@ module.exports = {
             inject: 'head',
         }),
         new HtmlWebpackPlugin({
+            title: 'Player Stats',
             filename: './player/index.html',
             template: './pages/player/index.html',
             chunks: ['player', 'style'],
