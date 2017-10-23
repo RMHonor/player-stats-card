@@ -1,0 +1,36 @@
+@import '../../style/shadow';
+
+.loader {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.player-info-table, .player-stats-table {
+    table {
+        max-width: 450px;
+        width: 95%;
+        margin: 20px auto;
+        border-left: 1px solid #c7c7c7;
+        border-right: 1px solid #c7c7c7;
+        border-top: 4px solid #3d00d2;
+        border-bottom: 4px solid #3d00d2;
+        border-radius: 4px;
+
+        @include shadow(3);
+
+        th {
+            text-align: left;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        td {
+            padding: 5px;
+            font-size: 16px;
+
+            &:nth-child(2) {
+                text-align: right;
+            }
+        }
+    }
+}
