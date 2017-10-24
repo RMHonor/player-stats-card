@@ -27,7 +27,7 @@
   "scripts": {
     "test": "karma",
     "start": "webpack-dev-server --hot --inline --https",
-    "prebuild": "rimraf ./docs",
+    "prebuild": "rimraf ./dist",
     "build": "webpack"
   },
   "repository": {
