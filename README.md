@@ -27,7 +27,7 @@ Global styling is stored in `src/style`, page specific styling is contained with
 
 ### Running
 
-First, install packages using `npm install`, then run the development server using `npm start`. Navigate to `https://localhost:8080` 
+After cloning the repository, install packages using `npm install`, then run the development server using `npm start`. Navigate to `https://localhost:8080` 
 
 For production build, run `npm run build`.
 
