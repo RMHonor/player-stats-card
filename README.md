@@ -1,7 +1,7 @@
 # Player Stats Card
 
 ## Technologies
-* Written in vanilla JS (ES7), which is transpiled into cross-platform ES5 using Babel and Webpack.
+* Written in vanilla JS (ES8), which is transpiled into cross-platform ES5 using Babel and Webpack.
 * SASS (SCSS) compiled into CSS through Webpack for styling.
 * To try and adapt the application for real-time data, the JSON data is outputted through a AWS lambda function (node 6), 
 passed through API Gateway. This allows individual players to be queried by ID. (see `lambda.js` for the function implementation)
