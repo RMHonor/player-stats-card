@@ -16,11 +16,11 @@ Styling is stored in `src/style`, styling uses the BEM organisation.
 ## Use
 
 ### Requirements
-* Node 8
-* NPM 5 (for package-lock)
+* Node 6
+* NPM 4+
 
 ### Running
 
-After cloning the repository, install packages using `npm install`, then run the development server using `npm start`. Navigate to `localhost:8080`
+After cloning the repository, install packages using `npm install`, then run the development server using `npm start`. Navigate to `http://localhost:8080`
 
-For production build, run `npm run build`.
+For production build, run `npm run build`, this outputs files in the `/dist` folder.

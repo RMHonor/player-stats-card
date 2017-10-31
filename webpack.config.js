@@ -11,7 +11,7 @@ const commonConfig = {
   },
 
   output: {
-    filename: './js/[name].js',
+    filename: './js/[name].[hash].js',
     path: `${__dirname}/dist`,
     publicPath: '/',
   },

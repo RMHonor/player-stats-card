@@ -3,38 +3,12 @@ import 'babel-polyfill';
 import Player from './player';
 import data from './data/player-stats.json';
 
-
+//app entry point
 (function () {
   const playerSelect = renderDropDown(data.players);
 
-  playerSelect.onchange = (evt) => {
-    let player = new Player(
-      data.players.find(player => player.player.id === +evt.target.value)
-    );
-
-    document.querySelector('.player-card')
-      .classList.remove('player-card--hidden');
-    document.querySelector('.player-card__name')
-      .innerText = player.name;
-    document.querySelector('.player-card__position')
-      .innerText = player.position;
-    document.querySelector('.player-card__image')
-      .setAttribute('class', `player-card__image player-image--${player.id}`);
-    document.querySelector('.player-card__badge')
-      .setAttribute('class', `player-card__badge team-badge--${player.team.id}`);
-
-    const stats = {
-      'Appearances': player.getStat('appearances'),
-      'Goals': player.getStat('goals'),
-      'Assists': player.getStat('goal_assist'),
-      'Goals per match': player.getGoalsPerMatch().toFixed(2),
-      'Passes per minute': player.getPassesPerMinutes().toFixed(2),
-    };
-
-    renderPlayerStats(stats);
-  }
+  playerSelect.onchange = populatePlayerCard;
 })();
-
 
 function renderDropDown(players) {
   const dropdown = document.querySelector('.player-select')
@@ -53,6 +27,32 @@ function renderDropDown(players) {
   return dropdown;
 }
 
+function populatePlayerCard(evt) {
+  let player = new Player(
+    data.players.find(player => player.player.id === +evt.target.value)
+  );
+
+  document.querySelector('.player-card')
+    .classList.remove('player-card--hidden');
+  document.querySelector('.player-card__name')
+    .innerText = player.name;
+  document.querySelector('.player-card__position')
+    .innerText = player.position;
+  document.querySelector('.player-card__image')
+    .setAttribute('class', `player-card__image player-image--${player.id}`);
+  document.querySelector('.player-card__badge')
+    .setAttribute('class', `player-card__badge team-badge--${player.team.id}`);
+
+  const stats = {
+    'Appearances': player.getStat('appearances'),
+    'Goals': player.getStat('goals'),
+    'Assists': player.getStat('goal_assist'),
+    'Goals per match': player.getGoalsPerMatch().toFixed(2),
+    'Passes per minute': player.getPassesPerMinutes().toFixed(2),
+  };
+
+  renderPlayerStats(stats);
+}
 
 function renderPlayerStats(stats) {
 
@@ -68,8 +68,8 @@ function renderPlayerStats(stats) {
     statContainer.appendChild(statValueElement);
   };
 
+  //delete prior stats
   const statsList = document.querySelector('.player-card__stats');
-
   while (statsList.firstChild) {
     statsList.removeChild(statsList.firstChild);
   }
