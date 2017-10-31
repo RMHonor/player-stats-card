@@ -6,7 +6,7 @@ const commonConfig = {
   context: `${__dirname}/src`,
 
   entry: {
-    bundle: ['./index.js', 'babel-polyfill'],
+    bundle: './index.js',
     style: './style/main.scss',
   },
 
