@@ -1,0 +1,54 @@
+.player-card {
+  width: 360px;
+  margin: 20px auto;
+  position: relative;
+  padding-top: 20px;
+
+  &__badge-container {
+    position: absolute;
+    padding: 4px;
+    border-radius: 100%;
+    background-color: white;
+    right: 20px;
+    top: 232px;
+    box-shadow: 0 0 2px 3px rgba(0, 0, 0, .2);
+  }
+
+  &__name, &__position {
+    color: white;
+    margin: 0;
+    font-weight: normal;
+  }
+
+
+  &__about {
+    background-color: #E91053;
+    padding: 15px;
+  }
+
+  &__stats {
+    margin-top: 10px;
+  }
+
+  &__stat {
+    background-color: #EAEAEA;
+    margin-bottom: 4px;
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .2);
+
+
+    &--name {
+
+    }
+
+    &--value {
+      float: right;
+      font-weight: bold;
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
