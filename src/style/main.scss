@@ -1,42 +1,9 @@
-@import '~bootstrap-grid';
-@import './reset';
-@import './error';
 @import './player-images';
 @import './sprite-base';
+@import './select';
+@import './player-card';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-.container {
-    border: 1px solid #c7c7c7;
-    border-radius: 20px;
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-.loader {
-    margin: 20px auto 0 auto;
-    text-align: center;
-
-    &__spinner {
-        -webkit-animation:spin 1.5s linear infinite;
-        -moz-animation:spin 1.5s linear infinite;
-        animation:spin 1.5s linear infinite;
-    }
-}
-
-h1 {
-    background-color: #bce1fd;
-    margin: 0;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-h1, h2, h3 {
-    text-align: center;
-}
 
 *, h1, h2, h3, h4, h5, h6, p {
     font-family: 'Open Sans', sans-serif;

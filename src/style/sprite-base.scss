@@ -10,11 +10,12 @@ $teams: (
 );
 
 @each $team in $teams {
-    .team-icon--#{nth($team, 1)}, .team-icon--#{nth($team, 2)} {
+    .team-badge--#{nth($team, 1)}, .team-badge--#{nth($team, 2)} {
         height: $sprite-height;
         width: $sprite-width;
         background-image: url('../img/badges_sprite.png');
         background-position-x: #{nth($team, 3) * $sprite-width};
         background-position-y: #{nth($team, 4) * $sprite-height};
+        border-radius: 100%;
     }
 }

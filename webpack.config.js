@@ -1,64 +1,75 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const merge = require('webpack-merge');
 
-module.exports = {
-    context: `${__dirname}/src`,
+const commonConfig = {
+  context: `${__dirname}/src`,
 
-    entry: {
-        home: './pages/home/index.js',
-        player: './pages/player/index.js',
-        style: './style/main.scss',
-    },
+  entry: {
+    bundle: './index.js',
+    style: './style/main.scss',
+  },
 
-    output: {
-        filename: './js/[name].js',
-        path: `${__dirname}/dist`,
-        publicPath: '/',
-    },
+  output: {
+    filename: './js/[name].js',
+    path: `${__dirname}/dist`,
+    publicPath: '/',
+  },
 
-    resolve: {
-        extensions: ['.js'],
-    },
-    module: {
+  resolve: {
+    extensions: ['.js'],
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js?$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader?sourceMap'],
+      },
+      {
+        test: /\.scss$/,
         loaders: [
-            {
-                test: /\.js?$/,
-                exclude: /node_modules/,
-                loaders: ['babel-loader?sourceMap'],
-            },
-            {
-                test: /\.scss$/,
-                loaders: [
-                    'style-loader',
-                    'css-loader?sourceMap',
-                    'resolve-url-loader',
-                    'sass-loader?sourceMap',
-                ],
-            },
-            {
-                test: /\.png$/,
-                loader: 'file-loader',
-            },
+          'style-loader',
+          'css-loader?sourceMap',
+          'autoprefixer-loader?browsers=last 5 version',
+          'resolve-url-loader',
+          'sass-loader?sourceMap',
         ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Player Stats',
-            filename: './index.html',
-            template: './pages/home/index.html',
-            chunks: ['home', 'style'],
-            inject: 'head',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'Player Stats',
-            filename: './player/index.html',
-            template: './pages/player/index.html',
-            chunks: ['player', 'style'],
-            inject: 'head',
-        }),
+      },
+      {
+        test: /\.png$/,
+        loader: 'file-loader',
+      },
     ],
-    devtool: 'source-map',
-    devServer: {
-        historyApiFallback: true,
-        contentBase: './',
-    },
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Player Stats',
+      filename: './index.html',
+      template: './index.html',
+      chunks: ['bundle', 'style'],
+      inject: 'body',
+    }),
+  ],
 };
+
+const devConfig = {
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+  },
+};
+
+const prodConfig = {
+  devtool: 'nosources-source-map',
+  plugins: [
+    new UglifyJSPlugin(),
+  ],
+};
+
+if (process.env.NODE_ENV === 'production'){
+  module.exports = merge(commonConfig, prodConfig);
+} else {
+  module.exports = merge(commonConfig, devConfig);
+}

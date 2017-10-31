@@ -1,0 +1,14 @@
+.player-select {
+  width: 300px;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+  margin: 0 auto;
+  display: block;
+  background-color: #EAEAEA;
+
+  &__option {
+    border-radius: 0;
+  }
+}
