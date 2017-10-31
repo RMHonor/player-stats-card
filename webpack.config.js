@@ -6,7 +6,7 @@ const commonConfig = {
   context: `${__dirname}/src`,
 
   entry: {
-    bundle: './index.js',
+    bundle: ['./index.js', 'babel-polyfill'],
     style: './style/main.scss',
   },
 
@@ -47,7 +47,6 @@ const commonConfig = {
       title: 'Player Stats',
       filename: './index.html',
       template: './index.html',
-      chunks: ['bundle', 'style'],
       inject: 'body',
     }),
   ],

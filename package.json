@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/RMHonor/player-stats-card/issues"
   },
-  "homepage": "https://github.com/RMHonor/player-stats-card#readme"
+  "homepage": "https://github.com/RMHonor/player-stats-card#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
 }

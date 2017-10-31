@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import Player from './player';
 import data from './data/player-stats.json';
 
