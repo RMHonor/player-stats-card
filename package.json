@@ -31,7 +31,7 @@
     "url": "git+https://github.com/RMHonor/player-stats-card.git"
   },
   "author": "Richard Honor <me@r-honor.uk>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RMHonor/player-stats-card/issues"
   },
